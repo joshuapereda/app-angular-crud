@@ -1,0 +1,131 @@
+  html, body{
+    background:#0d1117 !important;
+  }
+
+  :root{
+    --bg:#0d1117;
+    --panel:#161b22;
+    --border:#30363d;
+    --text:#c9d1d9;
+    --muted:#8b949e;
+    --accent:#58a6ff;
+    --red:#f85149;
+    --green:#3fb950;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    color:var(--text);
+    font-family:'SF Mono', 'Fira Code', Consolas, monospace;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+
+  .terminal{
+    width:100%;
+    max-width:640px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 16px 40px rgba(0,0,0,.5);
+  }
+
+  .bar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 14px;
+    background:#010409;
+    border-bottom:1px solid var(--border);
+  }
+
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .dot.r{background:#ff5f56;}
+  .dot.y{background:#ffbd2e;}
+  .dot.g{background:#27c93f;}
+
+  .bar-title{
+    margin-left:8px;
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  .body{
+    padding:28px 24px;
+    font-size:14px;
+    line-height:1.7;
+  }
+
+  .line{white-space:pre-wrap;}
+  .prompt{color:var(--green);}
+  .path{color:var(--accent);}
+  .cmd{color:var(--text);}
+
+  .error-code{
+    font-size:56px;
+    font-weight:700;
+    color:var(--red);
+    letter-spacing:-1px;
+    margin:18px 0 6px;
+  }
+
+  .msg{color:var(--muted); margin-bottom:18px;}
+  .msg b{color:var(--text); font-weight:600;}
+
+  .cursor{
+    display:inline-block;
+    width:8px;
+    height:16px;
+    background:var(--accent);
+    vertical-align:middle;
+    animation:blink 1s step-end infinite;
+  }
+
+  @keyframes blink{
+    50%{opacity:0;}
+  }
+
+  .actions{
+    margin-top:22px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:6px;
+    font-size:13px;
+    text-decoration:none;
+    border:1px solid var(--border);
+    background:#539ef3;
+    color:var(--text);
+    transition:background .15s, border-color .15s;
+  }
+
+  .btn:hover{
+    background:#21262d;
+    border-color:#8b949e;
+  }
+
+  .btn.primary{
+    background:#58a6ff;
+    border-color:var(--accent);
+    color:#ffffff;
+    font-weight:600;
+  }
+
+  .btn.primary:hover{
+    background:#494f57;
+  }
+
+  @media (max-width:480px){
+    .error-code{font-size:42px;}
+    .body{padding:22px 18px;}
+  }
