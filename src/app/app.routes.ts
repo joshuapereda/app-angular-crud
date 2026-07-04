@@ -8,7 +8,7 @@ import { Error404 } from './error404/error404';
 import { Inicio } from './inicio/inicio';
 
 export const routes: Routes = [
-  { path: 'inicios', component:Inicio},
+  { path: '', component:Inicio},
   { path: 'productos', component: Producto },
   { path: 'estudiantes', component: Estudiante },
   { path: 'cursos', component: Curso },

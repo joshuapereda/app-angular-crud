@@ -15,7 +15,7 @@ export class BlogService {
   //OPTENER LISTA DE ARTICULOS, CONSUMIENDO DATOS DE LA API, Y RETORNANDO UN OBSERVABLE
   funObtenerArticulos(){
     //consumiendo datos,consumiendo informacion de la api, y retornando un observable
-    return this.http.get(this.apiUrl,{timeout: 100 });
+    return this.http.get(this.apiUrl,{timeout: 1000 });
     /*Cuando hacemos esto nor esivimos directamente el listado de productos
     resivimos un OBSERVABLE:
     Un Observable es como un mensajero.

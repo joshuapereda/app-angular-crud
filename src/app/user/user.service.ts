@@ -7,6 +7,6 @@ export class UserService {
    http=inject(HttpClient);
 
    funObtenerUsuarios(){
-    return this.http.get(this.apiUrl,{timeout: 100});
+    return this.http.get(this.apiUrl,{timeout: 1000});
    }
 }
