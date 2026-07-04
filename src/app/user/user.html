@@ -1,0 +1,17 @@
+<div class="blog-container">
+  <h2 class="blog-title">Últimas publicaciones</h2>
+
+  <div class="blog-grid">
+    @for (us of usuario(); track $index) {
+      <div class="blog-card">
+        <img [src]="us.image" alt="{{us.firstName}}" class="blog-card-img">
+
+        <div class="blog-card-body">
+          <h1 class="blog-card-title">{{us.firstName}}</h1>
+          <p class="blog-card-desc">{{us.lastName}}</p>
+          <button class="blog-card-btn">Leer más →</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

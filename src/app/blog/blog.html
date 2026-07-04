@@ -1,0 +1,21 @@
+
+  @if(cargando()){
+    <h1>Cargando...</h1>
+  }
+<div class="blog-container">
+  <h2 class="blog-title">Últimas publicaciones</h2>
+
+  <div class="blog-grid">
+    @for (blo of publicaciones(); track $index) {
+      <div class="blog-card">
+        <img [src]="blo.cover_image" alt="{{blo.title}}" class="blog-card-img">
+
+        <div class="blog-card-body">
+          <h1 class="blog-card-title">{{blo.title}}</h1>
+          <p class="blog-card-desc">{{blo.description}}</p>
+          <button class="blog-card-btn">Leer más →</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

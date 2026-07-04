@@ -1,0 +1,139 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ── NAVBAR ── */
+.nav {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e6edf3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #58a6ff;
+  flex-shrink: 0;
+}
+
+.nav-links { display: flex; }
+
+.nav-links a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 0 0.85rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { color: #e6edf3; }
+
+.nav-links a.active {
+  color: #58a6ff;
+  border-bottom-color: #58a6ff;
+}
+
+/* ── HAMBURGUESA (oculta en desktop) ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 110;
+}
+
+.nav-toggle span {
+  width: 100%;
+  height: 2px;
+  background: #e6edf3;
+  border-radius: 2px;
+  transition: transform .25s, opacity .25s;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── TABLET / LAPTOPS PEQUEÑOS ── */
+@media (max-width: 900px) {
+  .nav { padding: 0 1.5rem; }
+  .nav-links a { padding: 0 0.5rem; font-size: 12.5px; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 700px) {
+  .nav { padding: 0 1.25rem; }
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+
+  .nav-links.open { max-height: 400px; }
+
+  .nav-links a {
+    height: 50px;
+    width: 100%;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid #21262d;
+    border-left: 2px solid transparent;
+  }
+
+  .nav-links a.active {
+    border-bottom-color: #21262d;
+    border-left-color: #58a6ff;
+    background: #0d1117;
+  }
+}
+
+/* ── PANTALLAS GRANDES ── */
+@media (min-width: 1400px) {
+  .nav { padding: 0 4rem; }
+}

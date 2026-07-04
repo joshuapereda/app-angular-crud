@@ -1,0 +1,93 @@
+  <!--<div>
+    <h3>Nombre: {{nombre}}</h3>
+    <h3>Precio: {{precio}}</h3>
+    <h3>Stock: {{stock}}</h3>
+    <h3>Descripcion: {{descripcion}}</h3>
+    <h3>Imagen: {{imagen}}</h3>
+  </div>-->
+
+
+  <div class="form-container">
+    <h2 class="form-title">Nuevo Producto</h2>
+    <form class="product-form">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <!--Nos permite enviar datos y recibir información gracias al-->
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre del producto" [(ngModel)]="nombre">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="precio">Precio</label>
+          <input type="number" id="precio" name="precio" placeholder="0.00" step="0.01" [(ngModel)]="precio">
+        </div>
+
+        <div class="form-group">
+          <label for="stock">Stock</label>
+          <input type="number" id="stock" name="stock" placeholder="0" [(ngModel)]="stock">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" placeholder="Descripción del producto" rows="4" [(ngModel)]="descripcion"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="imagen">URL Imagen</label>
+        <input type="text" id="imagen" name="imagen" placeholder="https://..." [(ngModel)]="imagen">
+      </div>
+
+      <div class="form-group form-check">
+        <label class="switch">
+          <input type="checkbox" id="estado" name="estado" [(ngModel)]="estado">
+          <span class="slider"></span>
+        </label>
+        <label for="estado" class="check-label">Producto activo</label>
+      </div>
+
+      <div class="form-actions" (click)="funGuardar()">
+        <button type="button" class="btn-cancel">Cancelar</button>
+        <button type="submit" class="btn-save">Guardar</button>
+      </div>
+    </form>
+  </div>
+  <div class="table-container">
+    <div class="table-header">
+      <h2 class="table-title">Productos</h2>
+      <button class="btn-add">+ Nuevo producto</button>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(prod of productos; track $index){
+          <tr>
+            <td><img [src]="prod.imagen || 'https://via.placeholder.com/40'" class="product-img" alt=""></td>
+            <td class="cell-name">{{prod.nombre}}</td>
+            <td>{{prod.precio}}</td>
+            <td>{{prod.stock}}</td>
+            <td class="cell-desc">{{prod.descripcion}}</td>
+            <td><span class="badge badge-active">{{prod.estado ? 'Activo' : 'Inactivo'}}</span></td>
+            <td class="cell-actions">
+              <button class="btn-icon" title="Editar" (click)="funEditar(prod,$index)">✎</button>
+              <button class="btn-icon btn-danger" title="Eliminar" (click)="funEliminar($index)">🗑</button>
+              <!--button class="btn-icon btn-danger" title="Eliminar" (click)="productos.splice($index,1)">🗑</button> -->
+            </td>
+        </tr>
+        }
+        </tbody>
+      </table>
+    </div>
+  </div>
