@@ -31,6 +31,9 @@ export class Producto {
     this.descripcion = "";
     this.imagen = "";
     this.estado = true;
+    //obtener datos del localStorage
+    const prods= localStorage.getItem("productos") || "[]";
+    this.productos= JSON.parse(prods);
   }
 
   // metodos o funciones
@@ -54,6 +57,9 @@ export class Producto {
         });
 
     }
+      //almacenar datos en localStorage
+      localStorage.setItem("productos",JSON.stringify(this.productos))
+      
       // Limpiar los campos del formulario
       this.nombre = "";
       this.precio = 0;

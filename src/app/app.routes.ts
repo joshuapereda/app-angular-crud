@@ -6,10 +6,12 @@ import { Blog } from './blog/blog';
 import { User } from './user/user';
 import { Error404 } from './error404/error404';
 import { Inicio } from './inicio/inicio';
+import { ProductoCarrito } from './producto-carrito/producto-carrito';
 
 export const routes: Routes = [
   { path: '', component:Inicio},
   { path: 'productos', component: Producto },
+  { path: 'prodCarritos', component:ProductoCarrito},
   { path: 'estudiantes', component: Estudiante },
   { path: 'cursos', component: Curso },
   { path: 'blogs', component: Blog},

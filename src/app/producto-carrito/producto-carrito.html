@@ -1,0 +1,52 @@
+<div class="productos-container">
+  <h5 class="titulo-seccion">Productos</h5>
+
+  <div class="productos-grid">
+    @for(prod of productos; track $index){
+      <div class="producto-card">
+        <div class="producto-img-wrapper">
+          <img [src]="prod.imagen" alt="" class="producto-img">
+        </div>
+        <h1 class="producto-nombre">{{prod.nombre}}</h1>
+        <h1 class="producto-precio">S/ {{prod.precio}}</h1>
+        <button class="btn-agregar" (click)="agregarCarrito(prod)">
+          Añadir al carrito
+        </button>
+      </div>
+    }
+  </div>
+</div>
+
+<div class="carrito-flotante" (click)="mostrarCarrito = !mostrarCarrito">
+  <span class="carrito-icono">🛒</span>
+  <span class="carrito-badge">{{carrito().length}}</span>
+</div>
+
+@if(mostrarCarrito){
+  <div class="carrito-panel">
+    <div class="carrito-header">
+      <h3>Tu carrito</h3>
+      <button class="cerrar-carrito" (click)="mostrarCarrito = false">✕</button>
+    </div>
+
+    <div class="carrito-lista">
+      @for(item of carrito(); track $index){
+        <div class="carrito-item">
+          <img [src]="item.imagen" alt="" class="carrito-item-img">
+          <div class="carrito-item-info">
+            <span class="carrito-item-nombre">{{item.nombre}}</span>
+            <span class="carrito-item-precio">S/ {{item.precio}}</span>
+          </div>
+          <button class="btn-eliminar" (click)="eliminarDelCarrito(item)">🗑</button>
+        </div>
+      } @empty {
+        <p class="carrito-vacio">No hay productos en el carrito</p>
+      }
+    </div>
+
+    <div class="carrito-footer">
+      <span class="carrito-total-label">Total:</span>
+      <span class="carrito-total-monto">S/ {{total()}}</span>
+    </div>
+  </div>
+}
